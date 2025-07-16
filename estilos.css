@@ -1,1 +1,56 @@
+// styles.css
+body {
+    font-family: sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
 
+h1 {
+    text-align: center;
+    color: #6a0dad;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.semester {
+    grid-column: 1 / -1;
+    background-color: #ddd;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.course {
+    padding: 10px;
+    background-color: #e0c3fc;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 14px;
+}
+
+.course.approved {
+    background-color: #c084fc;
+    color: white;
+}
+
+.course:hover {
+    transform: scale(1.05);
+}
+
+// script.js
+const courses = document.querySelectorAll('.course');
+
+courses.forEach(course => {
+    course.addEventListener('click', () => {
+        course.classList.toggle('approved');
+    });
+});
